@@ -1,0 +1,167 @@
+﻿@model Reparation.Models.WorkOrders
+
+<div class="not-printable">
+    @{
+        ViewBag.Title = "Details";
+    }
+</div>
+<link href="~/Content/NewStyle.css" rel="stylesheet" />
+
+<div class="print-page">
+    <div class="formput">
+        <form class="print-page">
+
+            <img src="~/Images/logo.png" width="50" ,height="50" />
+            <h4>Reparationer</h4>
+
+            <dl class="dl-horizontal">
+
+                <dt>
+                    @Html.Label("Reparationsnr :")
+
+                </dt>
+
+                <dd class="text-left">
+                    <b>
+                        @Html.DisplayFor(model => model.WorkOrderId)
+                    </b>
+                </dd>
+                <dt>
+                    @Html.Label("Mottagare :")
+                </dt>
+
+                <dd class="text-left">
+                    @Html.DisplayFor(model => model.GoldSmithName)
+                </dd>
+
+                <dt>
+                    @Html.Label("Kund namn :")
+                </dt>
+
+                <dd class="text-left">
+                    @Html.DisplayFor(model => model.CustomerName)
+                </dd>
+
+                <dt>
+                    @Html.Label("Telefonnummer :")
+                </dt>
+
+                <dd class="text-left">
+                    @Html.DisplayFor(model => model.CustomerMobileNumber)
+                </dd>
+
+                <dt>
+                    @Html.Label("Kund email :")
+                </dt>
+
+                <dd class="text-left">
+                    @Html.DisplayFor(model => model.CustomerEmail)
+                </dd>
+
+                <dt>
+                    @Html.Label("Föremål 1:")
+                </dt>
+
+                <dd class="text-left">
+                    @Html.DisplayFor(model => model.JewelleryDescription1)
+                </dd>
+                <dt>
+                    @Html.Label("Åtgärd :")
+                </dt>
+
+                <dd class="text-left">
+                    @Html.DisplayFor(model => model.WorkToBeDone)
+                </dd>
+                <dt>
+                    @Html.Label("Föremål 2:")
+                </dt>
+
+                <dd class="text-left">
+                    @Html.DisplayFor(model => model.JewelleryDescription2)
+                </dd>
+
+
+                <dt>
+                    @Html.Label("Åtgärd :")
+                </dt>
+
+                <dd class="text-left">
+                    @Html.DisplayFor(model => model.WorkToBeDone2)
+                </dd>
+                <dt>
+                    @Html.Label("Föremål3 :")
+                </dt>
+
+                <dd class="text-left">
+                    @Html.DisplayFor(model => model.JewelleryDescription3)
+                </dd>
+
+
+
+                <dt>
+                    @Html.Label("Åtgärd :")
+                </dt>
+
+                <dd class="text-left">
+                    @Html.DisplayFor(model => model.WorkToBeDone3)
+                </dd>
+
+                <dt>
+                    @Html.Label("Inlämnat (yyyy-MM-dd) :")
+                </dt>
+
+                <dd class="text-left">
+                    @Html.DisplayFor(model => model.ProductGivenOn)
+                </dd>
+
+                @*<dt>
+                        @Html.Label("",ProductToBeReturnedOn)
+                    </dt>
+
+                    <dd class="text-left">
+                        @Html.DisplayFor(model => model.ProductToBeReturnedOn)
+                    </dd>
+                    <dt>
+                        @Html.Label("",AmountEstimate)
+                    </dt>
+
+                    <dd class="text-left">
+                        @Html.DisplayFor(model => model.AmountEstimate)
+                    </dd>*@
+
+                <dt>
+                    @Html.Label("Status :")
+                </dt>
+
+                <dd class="text-left">
+                    @Html.DisplayFor(model => model.sStatus)
+                </dd>
+
+            </dl>
+            <div>
+                @*<textarea class="form-control" placeholder="Anteckningar" rows="2" style="width:100%"></textarea>*@
+                <span class="pull-left">
+                    Anteckningar :
+                </span><br />
+                <br />
+                <br />
+                <br />
+                <br />
+
+                <span class="pull-right">
+                    ______________________________<br />
+                    Kund signatur
+                </span>
+
+            </div>
+            <div class="not-printable">
+                <p>
+                    @Html.ActionLink("Redigera", "Edit", new { id = Model.Id }) ||
+                    @Html.ActionLink("Huvud Sida", "Index")||
+
+                    <a href="javascript:window.print()"><b>Skriv ut</b></a>
+                </p>
+            </div>
+        </form>
+    </div>
+</div>

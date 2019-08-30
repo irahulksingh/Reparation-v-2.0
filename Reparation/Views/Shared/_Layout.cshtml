@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="not-printable">@ViewBag.Title -Hallbergs-Workorder</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @*<link rel="icon" href="~/Images/favicon.png" />*@
+    @*@Url.Content("~/Content/NewStyle.css")*@
+    <link href="~/Content/NewStyle.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top not-printable">
+
+        @if (Session["UserId"] != null)
+        {
+            <div class="navbar-collapse collapse not-printable">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Reparationer", "Index", "WorkOrders")</li>
+                    <li>@Html.ActionLink("Ny Reparation", "Create", "WorkOrders")</li>
+                    @if(Session["Role"].ToString() == "Admin")
+                    { 
+                    <li>@Html.ActionLink("Registrera", "Register", "UserAccounts")</li>
+                    }
+                    <li>@Html.ActionLink("Logga ut", "Logout", "UserAccounts")</li> 
+                </ul>
+            </div>
+
+        }
+    </div>
+    @if (Session["UserId"] != null)
+    {
+        <div class=" not-printable">
+            <div class="alert-success">Välkommen <b>@Session["Fullname"]</b></div>
+        </div>
+    }
+    @RenderBody()
+    <hr />
+
+    <footer class="text-center not-printable">
+        <p style="color:#000000">Hallbergs Guld &copy; @DateTime.Now.Year</p>
+    </footer>
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

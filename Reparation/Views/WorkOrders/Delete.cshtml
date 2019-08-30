@@ -1,0 +1,168 @@
+﻿@model Reparation.Models.WorkOrders
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>WorkOrders</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkOrderId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WorkOrderId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GoldSmithName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GoldSmithName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerMobileNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerMobileNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JewelleryDescription1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JewelleryDescription1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JewelleryDescription2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JewelleryDescription2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JewelleryDescription3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JewelleryDescription3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkToBeDone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WorkToBeDone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkToBeDone2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WorkToBeDone2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkToBeDone3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WorkToBeDone3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AgentName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AgentName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductGivenOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductGivenOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateAcceptedOrRejected)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateAcceptedOrRejected)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sAcceptedRejectedStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sAcceptedRejectedStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AmountToBeCollected)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AmountToBeCollected)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comments)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

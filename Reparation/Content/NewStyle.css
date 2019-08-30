@@ -1,0 +1,113 @@
+﻿@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+@import url(https://fonts.googleapis.com/css?family=Montserrat|Raleway|Ubuntu&display=swap);
+
+.login-page {
+    width: 30%;
+    height: 100%;
+    border-color: #0f5ab9;
+    padding: 10% 0 0;
+    margin: auto;
+}
+
+
+.login-pagebg {
+    background-image: url('../../Images/Guldsmed.jpg');
+    width: 100%;
+    height: 100%;
+    padding: 0 0 0;
+    margin: auto;
+}
+
+.list-page {
+    width: 100%;
+    padding: 2% 0 0;
+    margin: auto;
+}
+
+.create-page {
+    width: 60%;
+    padding: 2% 0 0;
+    margin: auto;
+}
+
+@media print {
+    .not-printable, .not-printable * {
+        display: none !important;
+        width: 80%;
+    }
+
+    a[href^="mailto:"]::after {
+        display: none !important;
+    }
+}
+
+dl {
+    border: 3px double #ccc;
+    padding: 0.5em;
+}
+
+dt {
+    float: left;
+    clear: left;
+    width: 250px;
+    text-align: left;
+    font-weight: bold;
+    color: green;
+}
+
+dd {
+    margin: 0 0 0 110px;
+    padding: 0 0 0.5em 0;
+}
+
+.print-page {
+    width: 100%;
+    padding: 1% 0 0;
+    margin: auto;
+    text-align: center;
+}
+
+.form {
+    font-family: "Ubuntu";
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    max-width: 80%;
+    height: 80%;
+    margin: 0 auto 200px;
+    padding: 45px;
+    text-align: left;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+    .form input {
+        font-family: "Ubuntu";
+        outline: 0;
+        /*background: #f2f2f2;*/
+        /*width: 100%;*/
+        border: 1;
+        margin: 0 0 15px;
+        padding: 15px;
+        box-sizing: border-box;
+        font-size: 14px;
+    }
+
+
+.formput {
+    font-family: "Ubuntu";
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    max-width: 80%;
+    height: 80%;
+    margin: 0 auto 200px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+body {
+    background: #0f5ab9;
+    background-repeat: no-repeat;
+    height: 100%;
+}

@@ -1,0 +1,108 @@
+﻿@model IEnumerable<Reparation.Models.WorkOrders>
+
+@{
+    ViewBag.Title = "Index";
+}
+<link href="~/Content/NewStyle.css" rel="stylesheet" />
+<div class="list-page">
+    <div class="form">
+        <div class="form-horizontal">
+            <p class="text-center">
+
+                <h2>Reparation Lista</h2>
+
+
+            </p>
+            @using (Html.BeginForm())
+            {
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <div class="input-group">
+
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                                    @Html.TextBox("SearchString", "", new { style = "width:600px;", Placeholder = "Sök på Kundnamn/Reparationsnr/Telefonnr", @class = "form-control col-md-10" })
+                                </div>
+                                <div class="col-xs-6" style="padding-top:4px;">
+                                    <input type="submit" value="Sök" class="btn btn-success btn-lg btn-block" />
+                                </div>
+                                <input type="button" class="btn btn-primary btn-lg btn-block pull-right" value="Skapa ny Reparation" onclick="location.href='@Url.Action("Create", "WorkOrders")'" /><br /><br />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            <table class="table" style="text-align:left;">
+
+                <tr>
+                    <th>
+                        @Html.Label("Reparationsnr")
+                    </th>
+                    <th>
+                        @Html.Label("Mottagare")
+                    </th>
+
+                    <th>
+                        @Html.Label("Kund Namn")
+                    </th>
+                    <th>
+                        @Html.Label("Telefonnummer")
+                    </th>
+
+                    <th>
+                        @Html.Label("Status")
+                    </th>
+                    <th>
+                        @Html.Label("Anteckningar")
+                    </th>
+                    <th class="text-center">
+                        @Html.Label("Handling")
+                    </th>
+                    <th></th>
+                </tr>
+                @if (Model == null)
+                {
+                    <span> No Items found</span>
+
+                }
+                else
+                {
+
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.WorkOrderId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.GoldSmithName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CustomerName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CustomerMobileNumber)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.sStatus)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Comments)
+                            </td>
+
+                            <td class="text-center">
+                                @Html.ActionLink("Redigera", "Edit", new { id = item.Id }) ||
+                                @Html.ActionLink("Skriv ut", "Details", new { id = item.Id })
+                                @*@Html.ActionLink("Radera", "Delete", new { id = item.Id })*@
+                            </td>
+                        </tr>
+                    }
+                }
+
+            </table>
+        </div>
+
+    </div>
+</div>
+

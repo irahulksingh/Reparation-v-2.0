@@ -1,0 +1,58 @@
+﻿@model Reparation.Models.UserAccounts
+
+@{
+    ViewBag.Title = "Login";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <body class="login-pagebg">
+
+
+        <div class="login-page  ">
+            <span class="border-top"></span>
+            <div class="form">
+                <form class="login-page text-center">
+                    <p class="text-center">
+                        <img src="~/images/logo.png" width="50" , height="50" />
+                    </p>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        @Html.EditorFor(model => model.Anummer, new { htmlAttributes = new { Placeholder = "Anställningsnummer", @class = "form-control" } })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Anummer, "", new { @class = "text-danger" })
+
+                    <br />
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { Placeholder = "Lösenord", @class = "form-control" } })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+
+
+                    <br />
+                    <center>
+                        <input type="submit" value="Logga in" class="btn btn-primary btn-lg btn-block" @*style="background-color:#004785;color:#ffffff"*@ />
+                    </center>
+                    @*<div class="text-center">
+                            @Html.ActionLink("Skapa ny användare", "Register")
+                        </div>*@
+                </form>
+            </div>
+        </div>
+
+        <br /><br />
+        <br /><br />
+        <br /><br />
+    </body>
+
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

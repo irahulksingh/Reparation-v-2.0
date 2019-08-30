@@ -1,0 +1,151 @@
+﻿@model Reparation.Models.WorkOrders
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="create-page">
+        <div class="form">
+            <form class="create-page">
+                <h2>Redigera Reparationer</h2>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.Id)
+
+                <div class="col-md-4">
+                    @Html.Label("Reparationsnr")
+                    @Html.EditorFor(model => model.WorkOrderId, new { htmlAttributes = new { @class = "form-control", @readonly = "true", Style = "background:#cccccc;" } })
+
+                </div>
+
+
+
+                <div class="col-md-4">
+                    @Html.Label("Säljare")
+                    @Html.EditorFor(model => model.AgentName, new { htmlAttributes = new { @class = "form-control", @readonly = "true", Style = "background:#cccccc;" } })
+
+                </div>
+
+                <div class="col-md-4">
+                    @Html.Label("Mottaget")
+                    @Html.EditorFor(model => model.GoldSmithName, new { htmlAttributes = new { Placeholder = "Mottaget", @class = "form-control" } })
+
+                </div>
+                <div class="col-md-4">
+                    @Html.Label("Kund namn")
+                    @Html.EditorFor(model => model.CustomerName, new { htmlAttributes = new { Placeholder = "Kund namn", @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CustomerName, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-4">
+                    @Html.Label("Telefonnummer")
+                    @Html.EditorFor(model => model.CustomerMobileNumber, new { htmlAttributes = new { Placeholder = "Telefonnummer", @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CustomerMobileNumber, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-4">
+                    @Html.Label("Kund email")
+                    @Html.EditorFor(model => model.CustomerEmail, new { htmlAttributes = new { Placeholder = "Kund email", @class = "form-control" } })
+
+                </div>
+                <div class="col-lg-7">
+                    @Html.Label("Föremål1")
+                    @Html.EditorFor(model => model.JewelleryDescription1, new { htmlAttributes = new { Placeholder = "Föremål1", @class = "form-control" } })
+                </div>
+                <div class="col-lg-5">
+                    @Html.Label("Åtgärd")
+                    @Html.EditorFor(model => model.WorkToBeDone, new { htmlAttributes = new { Placeholder = "Åtgärd", @class = "form-control" } })
+                </div>
+                <div class="col-md-7">
+                    @Html.Label("Föremål2")
+                    @Html.EditorFor(model => model.JewelleryDescription2, new { htmlAttributes = new { Placeholder = "Föremål2", @class = "form-control" } })
+                </div>
+                <div class="col-md-5">
+                    @Html.Label("Åtgärd")
+                    @Html.EditorFor(model => model.WorkToBeDone2, new { htmlAttributes = new { Placeholder = "Åtgärd", @class = "form-control" } })
+                </div>
+                <div class="col-md-7">
+                    @Html.Label("Föremål3")
+                    @Html.EditorFor(model => model.JewelleryDescription3, new { htmlAttributes = new { Placeholder = "Föremål3", @class = "form-control" } })
+                </div>
+                <div class="col-md-5">
+                    @Html.Label("Åtgärd")
+                    @Html.EditorFor(model => model.WorkToBeDone3, new { htmlAttributes = new { Placeholder = "Åtgärd", @class = "form-control" } })
+                </div>
+
+                <div class="col-md-4">
+                    @Html.Label("Inlämnat (yyyy-MM-dd)")
+                    @Html.EditorFor(model => model.ProductGivenOn, "yyyy-MM-dd", new { htmlAttributes = new { Placeholder = "Inlämnat (dd-MM-yyyy)", @class = "form-control", Style = "background:#cccccc;" } })
+                    @Html.ValidationMessageFor(model => model.ProductGivenOn, "", new { @class = "text-danger" })
+                </div>
+                @*<div class="col-md-7">
+                        @Html.EditorFor(model => model.DateProposed, new { htmlAttributes = new { Placeholder = "Date Proposed (MM-dd-yyyy)", @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DateProposed, "", new { @class = "text-danger" })
+                    </div>*@
+
+                <div class="col-md-4">
+                    @Html.Label("KF status")
+                    @Html.EnumDropDownListFor(model => model.sAcceptedRejectedStatus, "Välj KF Status", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.sAcceptedRejectedStatus, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-4">
+                    @Html.Label("KF status datum (yyyy-MM-dd)")
+                    @Html.EditorFor(model => model.DateAcceptedOrRejected, new { htmlAttributes = new { Placeholder = "KF Status (yyyy-MM-dd)", @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DateAcceptedOrRejected, "", new { @class = "text-danger" })
+                </div>
+
+                @*div class="col-md-5">
+                        @Html.EditorFor(model => model.ProductToBeReturnedOn, new { htmlAttributes = new { Placeholder = "To be Returned on (MM-dd-yyyy)", @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ProductToBeReturnedOn, "", new { @class = "text-danger" })
+                    </div>*@
+
+                @*<div class="col-md-7">
+                        @Html.EditorFor(model => model.AmountEstimate, new { htmlAttributes = new { Placeholder = "Estimate given", @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.AmountEstimate, "", new { @class = "text-danger" })
+                    </div>*@
+                <div class="col-md-4">
+                    @Html.Label("Belopp")
+                    @Html.EditorFor(model => model.AmountToBeCollected, new { htmlAttributes = new { Placeholder = "Belopp", @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.AmountToBeCollected, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="col-md-4">
+                    @Html.Label("Status")
+                    @Html.EnumDropDownListFor(model => model.sStatus, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.sStatus, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="col-md-4">
+                    @Html.Label("Anteckningar")
+                    @Html.EditorFor(model => model.Comments, new { htmlAttributes = new { placeholder = "Anteckningar", @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Comments, "", new { @class = "text-danger" })
+                </div>
+
+
+                <center>
+                    <div>
+                        <input type="submit" value="Skapa" class="btn btn-success btn-lg btn-block" /><br />
+                        @*<input type="submit" value="Skapa" class="btn btn-success btn-lg btn-block" />*@
+                        @Html.ActionLink("Huvud sida", "Index")
+
+                    </div>
+                </center>
+
+            </form>
+
+        </div>
+
+    </div>
+    <div>
+        <div>
+          
+        </div>
+    </div>
+  
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
