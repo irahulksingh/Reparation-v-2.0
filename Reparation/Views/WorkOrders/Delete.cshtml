@@ -4,165 +4,154 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
-
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>WorkOrders</h4>
+ <div class="create-page">
+        <div class="form">
+            <form class="create-page">
+                <h3>Är du säker på att du vill ta bort detta? </h3>
     <hr />
     <dl class="dl-horizontal">
+
         <dt>
-            @Html.DisplayNameFor(model => model.WorkOrderId)
+            @Html.Label("Reparationsnr :")
+
         </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.WorkOrderId)
+        <dd class="text-left">
+            <b>
+                @Html.DisplayFor(model => model.WorkOrderId)
+            </b>
         </dd>
-
         <dt>
-            @Html.DisplayNameFor(model => model.GoldSmithName)
+            @Html.Label("Mottagare :")
         </dt>
 
-        <dd>
+        <dd class="text-left">
             @Html.DisplayFor(model => model.GoldSmithName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CustomerName)
+            @Html.Label("Kund namn :")
         </dt>
 
-        <dd>
+        <dd class="text-left">
             @Html.DisplayFor(model => model.CustomerName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CustomerMobileNumber)
+            @Html.Label("Telefonnummer :")
         </dt>
 
-        <dd>
+        <dd class="text-left">
             @Html.DisplayFor(model => model.CustomerMobileNumber)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CustomerEmail)
+            @Html.Label("Kund email :")
         </dt>
 
-        <dd>
+        <dd class="text-left">
             @Html.DisplayFor(model => model.CustomerEmail)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.JewelleryDescription1)
+            @Html.Label("Föremål 1:")
         </dt>
 
-        <dd>
+        <dd class="text-left">
             @Html.DisplayFor(model => model.JewelleryDescription1)
         </dd>
-
         <dt>
-            @Html.DisplayNameFor(model => model.JewelleryDescription2)
+            @Html.Label("Åtgärd :")
         </dt>
 
-        <dd>
+        <dd class="text-left">
+            @Html.DisplayFor(model => model.WorkToBeDone)
+        </dd>
+        <dt>
+            @Html.Label("Föremål 2:")
+        </dt>
+
+        <dd class="text-left">
             @Html.DisplayFor(model => model.JewelleryDescription2)
         </dd>
 
+
         <dt>
-            @Html.DisplayNameFor(model => model.JewelleryDescription3)
+            @Html.Label("Åtgärd :")
         </dt>
 
-        <dd>
+        <dd class="text-left">
+            @Html.DisplayFor(model => model.WorkToBeDone2)
+        </dd>
+        <dt>
+            @Html.Label("Föremål3 :")
+        </dt>
+
+        <dd class="text-left">
             @Html.DisplayFor(model => model.JewelleryDescription3)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.WorkToBeDone)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.WorkToBeDone)
-        </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.WorkToBeDone2)
+            @Html.Label("Åtgärd :")
         </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.WorkToBeDone2)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.WorkToBeDone3)
-        </dt>
-
-        <dd>
+        <dd class="text-left">
             @Html.DisplayFor(model => model.WorkToBeDone3)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.AgentName)
+            @Html.Label("Säljare")
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.AgentName)
         </dd>
-
         <dt>
-            @Html.DisplayNameFor(model => model.ProductGivenOn)
+            @Html.Label("Inlämnat (yyyy-MM-dd) :")
         </dt>
 
-        <dd>
+        <dd class="text-left">
             @Html.DisplayFor(model => model.ProductGivenOn)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DateAcceptedOrRejected)
+        @*<dt>
+            @Html.Label("",ProductToBeReturnedOn)
         </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.DateAcceptedOrRejected)
+        <dd class="text-left">
+            @Html.DisplayFor(model => model.ProductToBeReturnedOn)
         </dd>
-
         <dt>
-            @Html.DisplayNameFor(model => model.sAcceptedRejectedStatus)
+            @Html.Label("",AmountEstimate)
         </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.sAcceptedRejectedStatus)
-        </dd>
+        <dd class="text-left">
+            @Html.DisplayFor(model => model.AmountEstimate)
+        </dd>*@
 
         <dt>
-            @Html.DisplayNameFor(model => model.AmountToBeCollected)
+            @Html.Label("Status :")
         </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.AmountToBeCollected)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.sStatus)
-        </dt>
-
-        <dd>
+        <dd class="text-left">
             @Html.DisplayFor(model => model.sStatus)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Comments)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Comments)
         </dd>
 
     </dl>
 
+        
+
+                </form>
+
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+        <div class="form-actions no-color text-center">
+            <input type="submit" value="Delete" class="btn btn-danger text-center" /><br />
+            @Html.ActionLink("Huvud Sida", "Index")
         </div>
     }
 </div>
+     </div>
