@@ -15,7 +15,8 @@ namespace Reparation.Models
         [Required(ErrorMessage = "Anställningsnummer krävs")]
         public string Anummer { get; set; }
 
-        [Required]
+  
+        [Required(ErrorMessage = "Namn krävs")]
         public string FullName { get; set; }
 
         [Required(ErrorMessage = "Lösenord krävs")]
