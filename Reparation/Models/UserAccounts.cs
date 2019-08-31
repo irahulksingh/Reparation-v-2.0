@@ -34,7 +34,7 @@ namespace Reparation.Models
 
        
         [Range(1,3)]
-        [Required(ErrorMessage = "Roles krävs")]
+        [Display (Name="Role"), Required(ErrorMessage = "Roles krävs")]
         public Roles Role{ get; set; }
 
 

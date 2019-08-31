@@ -27,7 +27,7 @@ namespace Reparation.Controllers
 
         public ActionResult Register()
         {
-            if (Session["UserId"] == null && Session["Role"].ToString()!= "Admin")
+            if (Session["UserId"] == null/* && Session["Role"].ToString()!= "Admin"*/)
             {
                 return RedirectToAction("Login");
             }
@@ -51,17 +51,22 @@ namespace Reparation.Controllers
 
                 {
 
-                    ViewBag.message = account.Anummer + " " + "already exists, Contact Administrator. ";
+                    ViewBag.message = account.Anummer + " " + "finns redan, Kontakta administratör.";
                 }
                 else if (ModelState.IsValid)
                 {
-                    //using (OurDbContext db = new OurDbContext())
+
+                    //if (account.Role == 0)
+                    //{
+                    //    ViewBag.message = "Roles krävs";
+                    //}
+                    //else
                     {
                         db.userAccounts.Add(account);
                         db.SaveChanges();
                     }
                     ModelState.Clear();
-                    ViewBag.Message = account.FullName + " " + "has been successfully registered";
+                    ViewBag.Message = account.FullName + "har registrerats";
 
                 }
 
@@ -96,7 +101,7 @@ namespace Reparation.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "AnstallaningNummer or Password incorrect");
+                    ModelState.AddModelError(string.Empty, "Du har angivit en ogiltig AnstallaningNummer/lösenord ");
                 }
             }
             return View();

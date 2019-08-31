@@ -16,10 +16,12 @@ namespace Reparation.Controllers
         private OurDbContext db = new OurDbContext();
 
         // GET: WorkOrders
-        public ActionResult Index(string searchString)
+        public ActionResult Index(string searchString,string sortstring)
         {
             if (Session["UserId"] != null)
             {
+
+
                 var workordersearch = from wo in db.workOrders
                                       select wo;
                 if (!String.IsNullOrEmpty(searchString))
@@ -28,11 +30,6 @@ namespace Reparation.Controllers
                                            || wo.WorkOrderId.Contains(searchString) || wo.CustomerName.Contains(searchString));
 
                     return View(workordersearch.ToList());
-                    //}
-                    //else
-                    //{
-                    //    ModelState.AddModelError("", "No records found.");
-                    //}
 
                 }
 
