@@ -66,7 +66,7 @@ namespace Reparation.Controllers
                         db.SaveChanges();
                     }
                     ModelState.Clear();
-                    ViewBag.Message = account.FullName + "har registrerats";
+                    ViewBag.Message = account.FullName + " har registrerats";
 
                 }
 
