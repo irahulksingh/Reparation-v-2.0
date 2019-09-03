@@ -124,7 +124,10 @@
                     </div>
                     <center>
                         <div>
+                        @if (Session["Role"].ToString() == "Admin" || Session["Role"].ToString() == "User")
+                        {
                             <input type="submit" value="Skapa" class="btn btn-success btn-lg btn-block" /><br />
+                        }
                             @Html.ActionLink("Huvud sida", "Index")
                         </div>
                     </center>
