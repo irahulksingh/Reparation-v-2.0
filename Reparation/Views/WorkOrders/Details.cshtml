@@ -162,13 +162,14 @@
 
             @*@Html.ActionLink("Redigera", "Edit", new { id = Model.Id }) ||*@
             @if (Session["Role"].ToString() == "Admin" || Session["Role"].ToString() == "User")
-            {             
+            {
                 <button class="btn btn-md btn-primary" onclick="location.href='@Url.Action("Edit", "WorkOrders", new { id = Model.Id })';return false;">Redigera</button>
+                <button type="button" class="btn btn-md btn-success print_no" onclick="print_this('to_print')">Skriv ut!</button>
             }
             <button class="btn btn-md btn-info" onclick="location.href='@Url.Action("Index", "WorkOrders")';return false;">Huvud Sida</button>
-            <button type="button" class="btn btn-md btn-success print_no" onclick="print_this('to_print')">Skriv ut!</button>
+
             @*<a href="javascript:window.print()"><b>Skriv ut</b></a>*@
 
-    </div>
+        </div>
 </div>
 <script src="~/Scripts/PrintwithJavascript.js"></script>

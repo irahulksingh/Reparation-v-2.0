@@ -126,11 +126,15 @@
 
                 <center>
                     <div>
-                        <input type="submit" value="Skapa" class="btn btn-success btn-lg btn-block" /><br />
-                        @*<input type="submit" value="Skapa" class="btn btn-success btn-lg btn-block" />*@
-                        @Html.ActionLink("Huvud sida", "Index")
 
-                    </div>
+                        @if (Session["Role"].ToString() == "Admin" || Session["Role"].ToString() == "User")
+                        {
+                            <input type="submit" value="Skapa" class="btn btn-success btn-lg btn-block" /><br />
+                        }
+                            @*<input type="submit" value="Skapa" class="btn btn-success btn-lg btn-block" />*@
+                            @Html.ActionLink("Huvud sida", "Index")
+
+                        </div>
                 </center>
 
             </form>
