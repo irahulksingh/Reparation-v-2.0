@@ -48,12 +48,22 @@
                         @Html.EditorFor(model => model.CustomerMobileNumber, new { htmlAttributes = new { Placeholder = "Telefonnummer", @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.CustomerMobileNumber, "", new { @class = "text-danger" })
                     }
+                    @if (Session["Role"].ToString() == "Demo")
+                    {
+                        @Html.EditorFor(model => model.CustomerMobileNumber, new { htmlAttributes = new { Placeholder = "Kund email", @class = "form-control", Value = "xxxxxxxxxx" } })
+                    }
                 </div>
 
                 <div class="col-md-4">
                     @Html.Label("Kund email")
-                    @Html.EditorFor(model => model.CustomerEmail, new { htmlAttributes = new { Placeholder = "Kund email", @class = "form-control" } })
-
+                    @if (Session["Role"].ToString() == "Admin" || Session["Role"].ToString() == "User")
+                    {
+                        @Html.EditorFor(model => model.CustomerEmail, new { htmlAttributes = new { Placeholder = "Kund email", @class = "form-control" } })
+                    }
+                    @if (Session["Role"].ToString() == "Demo")
+                    {
+                        @Html.EditorFor(model => model.CustomerEmail, new { htmlAttributes = new { Placeholder = "Kund email", @class = "form-control", Value = "xxxxxx.xxxxx.xxx" } })
+                    }
                 </div>
                 <div class="col-lg-7">
                     @Html.Label("Föremål1")

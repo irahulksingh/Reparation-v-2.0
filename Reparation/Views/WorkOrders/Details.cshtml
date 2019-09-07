@@ -41,7 +41,8 @@
                     <dd class="text-left">
                         @Html.DisplayFor(model => model.CustomerName)
                     </dd>
-
+                    @if(Session["Role"].ToString()=="Admin" || Session["Role"].ToString()=="User")
+                    { 
                     <dt>
                         @Html.Label("Telefonnummer :")
                     </dt>
@@ -57,7 +58,7 @@
                     <dd class="text-left">
                         @Html.DisplayFor(model => model.CustomerEmail)
                     </dd>
-
+                    }
                     <dt>
                         @Html.Label("Föremål 1:")
                     </dt>
@@ -115,19 +116,19 @@
                     </dd>
 
                     @*<dt>
-                        @Html.Label("",ProductToBeReturnedOn)
-                    </dt>
+            @Html.Label("",ProductToBeReturnedOn)
+        </dt>
 
-                    <dd class="text-left">
-                        @Html.DisplayFor(model => model.ProductToBeReturnedOn)
-                    </dd>
-                    <dt>
-                        @Html.Label("",AmountEstimate)
-                    </dt>
+        <dd class="text-left">
+            @Html.DisplayFor(model => model.ProductToBeReturnedOn)
+        </dd>
+        <dt>
+            @Html.Label("",AmountEstimate)
+        </dt>
 
-                    <dd class="text-left">
-                        @Html.DisplayFor(model => model.AmountEstimate)
-                    </dd>*@
+        <dd class="text-left">
+            @Html.DisplayFor(model => model.AmountEstimate)
+        </dd>*@
 
                     <dt>
                         @Html.Label("Status :")
@@ -137,12 +138,18 @@
                         @Html.DisplayFor(model => model.sStatus)
                     </dd>
 
+                    <dt>
+                        @Html.Label("Anteckningar")
+                    </dt>
+
+                    <dd class="text-left">
+                        @Html.DisplayFor(model => model.Comments)
+                    </dd>
+
                 </dl>
                 <div>
                     @*<textarea class="form-control" placeholder="Anteckningar" rows="2" style="width:100%"></textarea>*@
-                    <span class="pull-left">
-                        Anteckningar :
-                    </span><br />
+                    <br />
                     <br />
                     <br />
                     <br />
