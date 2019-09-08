@@ -5,8 +5,15 @@
     width: 30%;
     height: 100%;
     border-color: #0f5ab9;
-    padding: 10% 0 0;
+    padding: 5% 0 0;
     margin: auto;
+
+}
+.help-block ul {
+    list-style-type: none;
+    font-size:10px;
+    font-weight:700;
+    margin-left:0;
 }
 
 

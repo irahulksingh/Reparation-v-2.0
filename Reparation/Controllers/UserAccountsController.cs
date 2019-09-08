@@ -101,7 +101,7 @@ namespace Reparation.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Du har angivit en ogiltig AnstallaningNummer/lösenord ");
+                    ModelState.AddModelError(string.Empty, "Ogiltig AnstallaningNummer/lösenord ");
                 }
             }
             return View();

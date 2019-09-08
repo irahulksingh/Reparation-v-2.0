@@ -11,10 +11,10 @@
     <div class="formput">
         <form class="print-page">
             <div id="to_print">
-                <img src="~/Images/logo.png" width="50" ,height="50" />
+                <img src="~/Images/logo.png" width="50" ,height="50" class="text-center" />
                 <h4>Reparationer</h4>
 
-                <dl class="dl-horizontal">
+                <dl class="">
 
                     <dt>
                         @Html.Label("Reparationsnr :")
@@ -139,7 +139,7 @@
                     </dd>
 
                     <dt>
-                        @Html.Label("Anteckningar")
+                        @Html.Label("Anteckningar :")
                     </dt>
 
                     <dd class="text-left">
@@ -151,16 +151,14 @@
                     @*<textarea class="form-control" placeholder="Anteckningar" rows="2" style="width:100%"></textarea>*@
                     <br />
                     <br />
-                    <br />
-                    <br />
-                    <br />
-
                     <span class="pull-right">
                         ______________________________
                         Kund signatur
                     </span>
                     <br /><br />
-
+                          <p class="text-left">
+                              Disclaimer:
+                          </p>
                 </div>
             </div>
 
