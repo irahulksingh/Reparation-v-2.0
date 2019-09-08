@@ -29,127 +29,260 @@
                     @Html.EditorFor(model => model.AgentName, new { htmlAttributes = new { @class = "form-control", @readonly = "true", Style = "background:#cccccc;" } })
 
                 </div>
+                @if (Model.sStatus.ToString() == "Utlämnat")
+                {
+                    <div class="col-md-4">
+                        @Html.Label("Mottagare")
+                        @Html.EditorFor(model => model.GoldSmithName, new { htmlAttributes = new { Placeholder = "Mottagare", @readonly= "true", @class = "form-control" } })
 
-                <div class="col-md-4">
-                    @Html.Label("Mottagare")
-                    @Html.EditorFor(model => model.GoldSmithName, new { htmlAttributes = new { Placeholder = "Mottagare", @class = "form-control" } })
+                    </div>
+                    <div class="col-md-4">
+                        @Html.Label("Kund namn")
+                        @Html.EditorFor(model => model.CustomerName, new { htmlAttributes = new { Placeholder = "Kund namn", @readonly= "true", @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.CustomerName, "", new { @class = "text-danger" })
+                    </div>
 
-                </div>
-                <div class="col-md-4">
-                    @Html.Label("Kund namn")
-                    @Html.EditorFor(model => model.CustomerName, new { htmlAttributes = new { Placeholder = "Kund namn", @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.CustomerName, "", new { @class = "text-danger" })
-                </div>
-               
-                <div class="col-md-4">
-                    @Html.Label("Telefonnummer")
-                    @if (Session["Role"].ToString() == "Admin" || Session["Role"].ToString() == "User")
+                    <div class="col-md-4">
+                        @Html.Label("Telefonnummer")
+                        @if (Session["Role"].ToString() == "Admin" || Session["Role"].ToString() == "User")
+                        {
+                            @Html.EditorFor(model => model.CustomerMobileNumber, new { htmlAttributes = new { Placeholder = "Telefonnummer", @readonly= "true", @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.CustomerMobileNumber, "", new { @class = "text-danger" })
+                        }
+                        @if (Session["Role"].ToString() == "Demo")
+                        {
+                            @Html.EditorFor(model => model.CustomerMobileNumber, new { htmlAttributes = new { Placeholder = "Kund email", @readonly= "true", @class = "form-control", Value = "xxxxxxxxxx" } })
+                        }
+                    </div>
+
+                    <div class="col-md-4">
+                        @Html.Label("Kund email")
+                        @if (Session["Role"].ToString() == "Admin" || Session["Role"].ToString() == "User")
+                        {
+                            @Html.EditorFor(model => model.CustomerEmail, new { htmlAttributes = new { Placeholder = "Kund email", @readonly= "true", @class = "form-control" } })
+                        }
+                        @if (Session["Role"].ToString() == "Demo")
+                        {
+                            @Html.EditorFor(model => model.CustomerEmail, new { htmlAttributes = new { Placeholder = "Kund email", @readonly= "true", @class = "form-control", Value = "xxxxxx.xxxxx.xxx" } })
+                        }
+                    </div>
+                    <div class="col-lg-7">
+                        @Html.Label("Föremål1")
+                        @Html.EditorFor(model => model.JewelleryDescription1, new { htmlAttributes = new { Placeholder = "Föremål1", @readonly= "true", @class = "form-control" } })
+                    </div>
+                    <div class="col-lg-5">
+                        @Html.Label("Åtgärd")
+                        @Html.EditorFor(model => model.WorkToBeDone, new { htmlAttributes = new { Placeholder = "Åtgärd", @readonly= "true", @class = "form-control" } })
+                    </div>
+                    <div class="col-md-7">
+                        @Html.Label("Föremål2")
+                        @Html.EditorFor(model => model.JewelleryDescription2, new { htmlAttributes = new { Placeholder = "Föremål2", @readonly= "true", @class = "form-control" } })
+                    </div>
+                    <div class="col-md-5">
+                        @Html.Label("Åtgärd")
+                        @Html.EditorFor(model => model.WorkToBeDone2, new { htmlAttributes = new { Placeholder = "Åtgärd", @readonly= "true", @class = "form-control" } })
+                    </div>
+                    <div class="col-md-7">
+                        @Html.Label("Föremål3")
+                        @Html.EditorFor(model => model.JewelleryDescription3, new { htmlAttributes = new { Placeholder = "Föremål3", @readonly= "true", @class = "form-control" } })
+                    </div>
+                    <div class="col-md-5">
+                        @Html.Label("Åtgärd")
+                        @Html.EditorFor(model => model.WorkToBeDone3, new { htmlAttributes = new { Placeholder = "Åtgärd", @readonly= "true", @class = "form-control" } })
+                    </div>
+
+                    <div class="col-md-4">
+                        @Html.Label("Inlämnat (yyyy-MM-dd)")
+                        @Html.EditorFor(model => model.ProductGivenOn, "yyyy-MM-dd", new { htmlAttributes = new { Placeholder = "Inlämnat (yyyy-MM-dd)", @readonly= "true", @class = "form-control", Style = "background:#cccccc;" } })
+                        @Html.ValidationMessageFor(model => model.ProductGivenOn, "", new { @class = "text-danger" })
+                    </div>
+                    @*<div class="col-md-7">
+                @Html.EditorFor(model => model.DateProposed, new { htmlAttributes = new { Placeholder = "Date Proposed (MM-dd-yyyy)", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DateProposed, "", new { @class = "text-danger" })
+            </div>*@
+
+                    <div class="col-md-4">
+                        @Html.Label("KF status")
+                        @Html.EnumDropDownListFor(model => model.sAcceptedRejectedStatus, "Välj KF Status", new { @readonly= "true", @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.sAcceptedRejectedStatus, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-4">
+                        @Html.Label("KF status datum (yyyy-MM-dd)")
+                        @Html.EditorFor(model => model.DateAcceptedOrRejected, new { htmlAttributes = new { Placeholder = "KF Status (yyyy-MM-dd)", @readonly= "true", @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DateAcceptedOrRejected, "", new { @class = "text-danger" })
+                    </div>
+
+                    @*div class="col-md-5">
+                @Html.EditorFor(model => model.ProductToBeReturnedOn, new { htmlAttributes = new { Placeholder = "To be Returned on (MM-dd-yyyy)", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ProductToBeReturnedOn, "", new { @class = "text-danger" })
+            </div>*@
+
+                    @*<div class="col-md-7">
+                @Html.EditorFor(model => model.AmountEstimate, new { htmlAttributes = new { Placeholder = "Estimate given", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.AmountEstimate, "", new { @class = "text-danger" })
+            </div>*@
+                    <div class="col-md-4">
+                        @Html.Label("Belopp")
+                        @Html.EditorFor(model => model.AmountToBeCollected, new { htmlAttributes = new { Placeholder = "Belopp", @readonly= "true", @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.AmountToBeCollected, "", new { @class = "text-danger" })
+                    </div>
+                    if (Session["Role"].ToString() == "Admin")
                     {
-                        @Html.EditorFor(model => model.CustomerMobileNumber, new { htmlAttributes = new { Placeholder = "Telefonnummer", @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.CustomerMobileNumber, "", new { @class = "text-danger" })
+                        <div class="col-md-4">
+                            @Html.Label("Status")
+                            @Html.EnumDropDownListFor(model => model.sStatus, new { @class = "form-control"})
+                            @Html.ValidationMessageFor(model => model.sStatus, "", new { @class = "text-danger" })
+                        </div>
                     }
-                    @if (Session["Role"].ToString() == "Demo")
+                    else
                     {
-                        @Html.EditorFor(model => model.CustomerMobileNumber, new { htmlAttributes = new { Placeholder = "Kund email", @class = "form-control", Value = "xxxxxxxxxx" } })
+                        <div class="col-md-4">
+                            @Html.Label("Status")
+                            @Html.EnumDropDownListFor(model => model.sStatus, new { @class = "form-control", @readonly= "true", })
+                            @Html.ValidationMessageFor(model => model.sStatus, "", new { @class = "text-danger" })
+                        </div>
                     }
-                </div>
 
-                <div class="col-md-4">
-                    @Html.Label("Kund email")
-                    @if (Session["Role"].ToString() == "Admin" || Session["Role"].ToString() == "User")
-                    {
-                        @Html.EditorFor(model => model.CustomerEmail, new { htmlAttributes = new { Placeholder = "Kund email", @class = "form-control" } })
-                    }
-                    @if (Session["Role"].ToString() == "Demo")
-                    {
-                        @Html.EditorFor(model => model.CustomerEmail, new { htmlAttributes = new { Placeholder = "Kund email", @class = "form-control", Value = "xxxxxx.xxxxx.xxx" } })
-                    }
-                </div>
-                <div class="col-lg-7">
-                    @Html.Label("Föremål1")
-                    @Html.EditorFor(model => model.JewelleryDescription1, new { htmlAttributes = new { Placeholder = "Föremål1", @class = "form-control" } })
-                </div>
-                <div class="col-lg-5">
-                    @Html.Label("Åtgärd")
-                    @Html.EditorFor(model => model.WorkToBeDone, new { htmlAttributes = new { Placeholder = "Åtgärd", @class = "form-control" } })
-                </div>
-                <div class="col-md-7">
-                    @Html.Label("Föremål2")
-                    @Html.EditorFor(model => model.JewelleryDescription2, new { htmlAttributes = new { Placeholder = "Föremål2", @class = "form-control" } })
-                </div>
-                <div class="col-md-5">
-                    @Html.Label("Åtgärd")
-                    @Html.EditorFor(model => model.WorkToBeDone2, new { htmlAttributes = new { Placeholder = "Åtgärd", @class = "form-control" } })
-                </div>
-                <div class="col-md-7">
-                    @Html.Label("Föremål3")
-                    @Html.EditorFor(model => model.JewelleryDescription3, new { htmlAttributes = new { Placeholder = "Föremål3", @class = "form-control" } })
-                </div>
-                <div class="col-md-5">
-                    @Html.Label("Åtgärd")
-                    @Html.EditorFor(model => model.WorkToBeDone3, new { htmlAttributes = new { Placeholder = "Åtgärd", @class = "form-control" } })
-                </div>
 
-                <div class="col-md-4">
-                    @Html.Label("Inlämnat (yyyy-MM-dd)")
-                    @Html.EditorFor(model => model.ProductGivenOn, "yyyy-MM-dd", new { htmlAttributes = new { Placeholder = "Inlämnat (dd-MM-yyyy)", @class = "form-control", Style = "background:#cccccc;" } })
-                    @Html.ValidationMessageFor(model => model.ProductGivenOn, "", new { @class = "text-danger" })
-                </div>
-                @*<div class="col-md-7">
-                        @Html.EditorFor(model => model.DateProposed, new { htmlAttributes = new { Placeholder = "Date Proposed (MM-dd-yyyy)", @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.DateProposed, "", new { @class = "text-danger" })
-                    </div>*@
+                    <div class="col-md-4">
+                        @Html.Label("Anteckningar")
+                        @Html.EditorFor(model => model.Comments, new { htmlAttributes = new { placeholder = "Anteckningar", @readonly= "true", @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Comments, "", new { @class = "text-danger" })
+                    </div>
 
-                <div class="col-md-4">
-                    @Html.Label("KF status")
-                    @Html.EnumDropDownListFor(model => model.sAcceptedRejectedStatus, "Välj KF Status", new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.sAcceptedRejectedStatus, "", new { @class = "text-danger" })
-                </div>
-                <div class="col-md-4">
-                    @Html.Label("KF status datum (yyyy-MM-dd)")
-                    @Html.EditorFor(model => model.DateAcceptedOrRejected, new { htmlAttributes = new { Placeholder = "KF Status (yyyy-MM-dd)", @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.DateAcceptedOrRejected, "", new { @class = "text-danger" })
-                </div>
+                }
+                else
+                {
+                    <div class="col-md-4">
+                        @Html.Label("Mottagare")
+                        @Html.EditorFor(model => model.GoldSmithName, new { htmlAttributes = new { Placeholder = "Mottagare", @class = "form-control" } })
 
-                @*div class="col-md-5">
-                        @Html.EditorFor(model => model.ProductToBeReturnedOn, new { htmlAttributes = new { Placeholder = "To be Returned on (MM-dd-yyyy)", @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.ProductToBeReturnedOn, "", new { @class = "text-danger" })
-                    </div>*@
+                    </div>
+                    <div class="col-md-4">
+                        @Html.Label("Kund namn")
+                        @Html.EditorFor(model => model.CustomerName, new { htmlAttributes = new { Placeholder = "Kund namn", @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.CustomerName, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-4">
+                        @Html.Label("Telefonnummer")
+                        @if (Session["Role"].ToString() == "Admin" || Session["Role"].ToString() == "User")
+                        {
+                            @Html.EditorFor(model => model.CustomerMobileNumber, new { htmlAttributes = new { Placeholder = "Telefonnummer", @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.CustomerMobileNumber, "", new { @class = "text-danger" })
+                        }
+                        @if (Session["Role"].ToString() == "Demo")
+                        {
+                            @Html.EditorFor(model => model.CustomerMobileNumber, new { htmlAttributes = new { Placeholder = "Kund email", @class = "form-control", Value = "xxxxxxxxxx" } })
+                        }
+                    </div>
 
-                @*<div class="col-md-7">
-                        @Html.EditorFor(model => model.AmountEstimate, new { htmlAttributes = new { Placeholder = "Estimate given", @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.AmountEstimate, "", new { @class = "text-danger" })
-                    </div>*@
-                <div class="col-md-4">
-                    @Html.Label("Belopp")
-                    @Html.EditorFor(model => model.AmountToBeCollected, new { htmlAttributes = new { Placeholder = "Belopp", @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.AmountToBeCollected, "", new { @class = "text-danger" })
-                </div>
+                    <div class="col-md-4">
+                        @Html.Label("Kund email")
+                        @if (Session["Role"].ToString() == "Admin" || Session["Role"].ToString() == "User")
+                        {
+                            @Html.EditorFor(model => model.CustomerEmail, new { htmlAttributes = new { Placeholder = "Kund email", @class = "form-control" } })
+                        }
+                        @if (Session["Role"].ToString() == "Demo")
+                        {
+                            @Html.EditorFor(model => model.CustomerEmail, new { htmlAttributes = new { Placeholder = "Kund email", @class = "form-control", Value = "xxxxxx.xxxxx.xxx" } })
+                        }
+                    </div>
+                    <div class="col-lg-7">
+                        @Html.Label("Föremål1")
+                        @Html.EditorFor(model => model.JewelleryDescription1, new { htmlAttributes = new { Placeholder = "Föremål1", @class = "form-control" } })
+                    </div>
+                    <div class="col-lg-5">
+                        @Html.Label("Åtgärd")
+                        @Html.EditorFor(model => model.WorkToBeDone, new { htmlAttributes = new { Placeholder = "Åtgärd", @class = "form-control" } })
+                    </div>
+                    <div class="col-md-7">
+                        @Html.Label("Föremål2")
+                        @Html.EditorFor(model => model.JewelleryDescription2, new { htmlAttributes = new { Placeholder = "Föremål2", @class = "form-control" } })
+                    </div>
+                    <div class="col-md-5">
+                        @Html.Label("Åtgärd")
+                        @Html.EditorFor(model => model.WorkToBeDone2, new { htmlAttributes = new { Placeholder = "Åtgärd", @class = "form-control" } })
+                    </div>
+                    <div class="col-md-7">
+                        @Html.Label("Föremål3")
+                        @Html.EditorFor(model => model.JewelleryDescription3, new { htmlAttributes = new { Placeholder = "Föremål3", @class = "form-control" } })
+                    </div>
+                    <div class="col-md-5">
+                        @Html.Label("Åtgärd")
+                        @Html.EditorFor(model => model.WorkToBeDone3, new { htmlAttributes = new { Placeholder = "Åtgärd", @class = "form-control" } })
+                    </div>
 
-                <div class="col-md-4">
-                    @Html.Label("Status")
-                    @Html.EnumDropDownListFor(model => model.sStatus, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.sStatus, "", new { @class = "text-danger" })
-                </div>
+                    <div class="col-md-4">
+                        @Html.Label("Inlämnat (yyyy-MM-dd)")
+                        @Html.EditorFor(model => model.ProductGivenOn, "yyyy-MM-dd", new { htmlAttributes = new { Placeholder = "Inlämnat (yyyy-MM-dd)", @readonly = "true", @class = "form-control", Style = "background:#cccccc;" } })
+                        @Html.ValidationMessageFor(model => model.ProductGivenOn, "", new { @class = "text-danger" })
+                    </div>
+                    @*<div class="col-md-7">
+                @Html.EditorFor(model => model.DateProposed, new { htmlAttributes = new { Placeholder = "Date Proposed (MM-dd-yyyy)", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DateProposed, "", new { @class = "text-danger" })
+            </div>*@
 
-                <div class="col-md-4">
-                    @Html.Label("Anteckningar")
-                    @Html.EditorFor(model => model.Comments, new { htmlAttributes = new { placeholder = "Anteckningar", @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Comments, "", new { @class = "text-danger" })
-                </div>
+                    <div class="col-md-4">
+                        @Html.Label("KF status")
+                        @Html.EnumDropDownListFor(model => model.sAcceptedRejectedStatus, "Välj KF Status", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.sAcceptedRejectedStatus, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-4">
+                        @Html.Label("KF status datum (yyyy-MM-dd)")
+                        @Html.EditorFor(model => model.DateAcceptedOrRejected, new { htmlAttributes = new { Placeholder = "KF Status (yyyy-MM-dd)", @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DateAcceptedOrRejected, "", new { @class = "text-danger" })
+                    </div>
+
+                    @*div class="col-md-5">
+                @Html.EditorFor(model => model.ProductToBeReturnedOn, new { htmlAttributes = new { Placeholder = "To be Returned on (MM-dd-yyyy)", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ProductToBeReturnedOn, "", new { @class = "text-danger" })
+            </div>*@
+
+                    @*<div class="col-md-7">
+                @Html.EditorFor(model => model.AmountEstimate, new { htmlAttributes = new { Placeholder = "Estimate given", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.AmountEstimate, "", new { @class = "text-danger" })
+            </div>*@
+                    <div class="col-md-4">
+                        @Html.Label("Belopp")
+                        @Html.EditorFor(model => model.AmountToBeCollected, new { htmlAttributes = new { Placeholder = "Belopp", @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.AmountToBeCollected, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="col-md-4">
+                        @Html.Label("Status")
+                        @Html.EnumDropDownListFor(model => model.sStatus, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.sStatus, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="col-md-4">
+                        @Html.Label("Anteckningar")
+                        @Html.EditorFor(model => model.Comments, new { htmlAttributes = new { placeholder = "Anteckningar", @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Comments, "", new { @class = "text-danger" })
+                    </div>
+
+
+                }
+
+
+
+
 
 
                 <center>
                     <div>
-
+                        @*@if (Model.sStatus.ToString() == "Utlämnat")
+                        {
+                            <input type="submit" value="Skapa" class="btn btn-success btn-lg btn-block disabled" /><br />
+                        }
+                         {}*@
                         @if (Session["Role"].ToString() == "Admin" || Session["Role"].ToString() == "User")
                         {
                             <input type="submit" value="Skapa" class="btn btn-success btn-lg btn-block" /><br />
                         }
-                            @*<input type="submit" value="Skapa" class="btn btn-success btn-lg btn-block" />*@
-                            @Html.ActionLink("Huvud sida", "Index")
+                        @*<input type="submit" value="Skapa" class="btn btn-success btn-lg btn-block" />*@
+                        @Html.ActionLink("Huvud sida", "Index")
 
-                        </div>
+                    </div>
                 </center>
 
             </form>

@@ -61,7 +61,7 @@ namespace Reparation.Models
 
 
 
-        [Range(0, 2)]
+        [Range(0, 3)]
         public status sStatus { get; set; }
 
         public string Comments { get; set; }
@@ -80,7 +80,8 @@ namespace Reparation.Models
         [Display(Name = "Hos Guldsmed")]
         HosGuldsmed = 1,
         [Display(Name = "Åter i butik")]
-        Åteributik = 2
+        Åteributik = 2,
+        Utlämnat = 3
 
     }
 }
