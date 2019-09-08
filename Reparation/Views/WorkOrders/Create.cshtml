@@ -21,12 +21,12 @@
                     <div class="col-md-4">
 
                         @Html.Label("Reparationsnr")
-                        @Html.TextBoxFor(model => model.WorkOrderId, new { @class = "form-control", @readonly = "true", Style = "background:#cccccc;", Value = Session["ButikId"].ToString() + "-" + DateTime.Now.ToString("yyMMddHHmm") })
+                        @Html.TextBoxFor(model => model.WorkOrderId, new { @class = "form-control", @readonly = "true", Value = Session["ButikId"].ToString() + "-" + DateTime.Now.ToString("yyMMddHHmm") })
 
                     </div>
                     <div class="col-md-4">
                         @Html.Label("Säljare")
-                        @Html.EditorFor(model => model.AgentName, new { htmlAttributes = new { @class = "form-control", @readonly = "true", Style = "background:#cccccc;", Value = Session["FullName"].ToString() } })
+                        @Html.EditorFor(model => model.AgentName, new { htmlAttributes = new { @class = "form-control", @readonly = "true", Value = Session["FullName"].ToString() } })
 
                     </div>
 
@@ -77,7 +77,7 @@
 
                     <div class="col-md-4">
                         @Html.Label("Inlämnat (yyyy-MM-dd)")
-                        @Html.EditorFor(model => model.ProductGivenOn, new { htmlAttributes = new { Placeholder = "Inlämnat (yyyy-MM-dd)", @class = "form-control", Readonly = "true", Style = "background:#cccccc;", Value = DateTime.Now.ToString("yyyy-MM-dd") } })
+                        @Html.EditorFor(model => model.ProductGivenOn, new { htmlAttributes = new { Placeholder = "Inlämnat (yyyy-MM-dd)", @class = "form-control", @readonly = "true", Value = DateTime.Now.ToString("yyyy-MM-dd") } })
                         @Html.ValidationMessageFor(model => model.ProductGivenOn, "", new { @class = "text-danger" })
                     </div>
                     @*<div class="col-md-7">
@@ -91,7 +91,7 @@
                         @Html.ValidationMessageFor(model => model.sAcceptedRejectedStatus, "", new { @class = "text-danger" })
                     </div>
                     <div class="col-md-4">
-                        @Html.Label("KF status datum (yyyy-MM-dd)")
+                        @Html.Label("KF status datum")
                         @Html.EditorFor(model => model.DateAcceptedOrRejected, new { htmlAttributes = new { Placeholder = "KF Status (yyyy-MM-dd)", @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.DateAcceptedOrRejected, "", new { @class = "text-danger" })
                     </div>
@@ -128,7 +128,7 @@
                         {
                             <input type="submit" value="Skapa" class="btn btn-success btn-lg btn-block" /><br />
                         }
-                            @Html.ActionLink("Huvud sida", "Index")
+                        <button class="btn btn-md btn-primary" onclick="location.href='@Url.Action("Index", "WorkOrders")';return false;">Huvud Sida</button><button class="btn btn-md btn-primary" onclick="location.href='@Url.Action("Index", "WorkOrders")';return false;">Huvud Sida</button>
                         </div>
                     </center>
                 </div>
