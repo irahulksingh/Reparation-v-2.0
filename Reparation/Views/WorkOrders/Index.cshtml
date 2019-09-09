@@ -74,29 +74,29 @@
                     foreach (var item in Model)
                     {
                     <tr>
-                        <td>
+                        <td width="150px">
                             @Html.DisplayFor(modelItem => item.WorkOrderId)
                         </td>
-                        <td>
+                        <td width="150px">
                             @Html.DisplayFor(modelItem => item.GoldSmithName)
                         </td>
-                        <td>
+                        <td width="200PX">
                             @Html.DisplayFor(modelItem => item.CustomerName)
                         </td>
                         @if (Session["Role"].ToString() != "Demo")
                         {
-                            <td>
+                            <td width="70px">
                                 @Html.DisplayFor(modelItem => item.CustomerMobileNumber)
                             </td>
                         }
-                            <td>
+                            <td width="70px">
                                 @Html.DisplayFor(modelItem => item.sStatus)
                             </td>
-                            <td>
+                            <td width="300px">
                                 @Html.DisplayFor(modelItem => item.Comments)
                             </td>
 
-                            <td class="text-center">
+                            <td class="text-center" width="500px">
 
                                 @*@Html.ActionLink("Redigera", "Edit", new { id = item.Id }) ||*@
                                 <button class="btn btn-sm btn-primary" onclick="location.href='@Url.Action("Edit", "WorkOrders", new { id = item.Id })';return false;">Redigera</button>
