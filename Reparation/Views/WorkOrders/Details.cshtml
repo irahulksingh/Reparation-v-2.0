@@ -13,140 +13,71 @@
             <div id="to_print">
                 <img src="~/Images/logo.png" width="50" ,height="50" class="text-center" />
                 <h4>Reparationer</h4>
+                <table class="table-condensed text-left">
 
-                <dl class="">
+                    <tr class="text-center" width="100%"><td></td></tr>
+                    <tr>
+                        <td width="200px">@Html.Label("Reparationsnr :")</td>
+                        <td width="500px">@Html.DisplayFor(model => model.WorkOrderId)</td>
+                    </tr>
+                    <tr>
+                        <td width="200px">@Html.Label("Mottagare :")</td>
+                        <td width="500px">@Html.DisplayFor(model => model.GoldSmithName)</td>
+                    </tr>
 
-                    <dt>
-                        @Html.Label("Reparationsnr :")
-
-                    </dt>
-
-                    <dd class="text-left">
-                        <b>
-                            @Html.DisplayFor(model => model.WorkOrderId)
-                        </b>
-                    </dd>
-                    <dt>
-                        @Html.Label("Mottagare :")
-                    </dt>
-
-                    <dd class="text-left">
-                        @Html.DisplayFor(model => model.GoldSmithName)
-                    </dd>
-
-                    <dt>
-                        @Html.Label("Kund namn :")
-                    </dt>
-
-                    <dd class="text-left">
-                        @Html.DisplayFor(model => model.CustomerName)
-                    </dd>
-                    @if(Session["Role"].ToString()=="Admin" || Session["Role"].ToString()=="User")
-                    { 
-                    <dt>
-                        @Html.Label("Telefonnummer :")
-                    </dt>
-
-                    <dd class="text-left">
-                        @Html.DisplayFor(model => model.CustomerMobileNumber)
-                    </dd>
-
-                    <dt>
-                        @Html.Label("Kund email :")
-                    </dt>
-
-                    <dd class="text-left">
-                        @Html.DisplayFor(model => model.CustomerEmail)
-                    </dd>
+                    <tr>
+                        <td width="200px"> @Html.Label("Kund namn :")</td>
+                        <td width="500px"> @Html.DisplayFor(model => model.CustomerName)</td>
+                    </tr>
+                    @if (Session["Role"].ToString() == "Admin" || Session["Role"].ToString() == "User")
+                    {
+                        <tr>
+                            <td width="200px"> @Html.Label("Telefonnummer :")</td>
+                            <td width="500px">  @Html.DisplayFor(model => model.CustomerMobileNumber)</td>
+                        </tr>
+                        <tr><td width="200px"> @Html.Label("Kund email :")</td>
+                            <td width="500px"> @Html.DisplayFor(model => model.CustomerEmail)</td>
+                        </tr>
                     }
-                    <dt>
-                        @Html.Label("Föremål 1:")
-                    </dt>
+                    <tr>
+                        <td width="200px">@Html.Label("Föremål 1:")</td>
+                        <td width="500px">  @Html.DisplayFor(model => model.JewelleryDescription1)</td>
+                    </tr>
+                    <tr>
+                        <td width="200px"> @Html.Label("Åtgärd :")</td>
+                        <td width="500px"> @Html.DisplayFor(model => model.WorkToBeDone)</td>
+                    </tr>
+                    <tr>
+                        <td width="200px"> @Html.Label("Föremål 2:")</td>
+                        <td width="500px">  @Html.DisplayFor(model => model.JewelleryDescription2)</td>
+                    </tr>
+                    <tr>
+                        <td width="200px">@Html.Label("Åtgärd :")</td>
+                        <td width="500px">   @Html.DisplayFor(model => model.WorkToBeDone2)</td>
+                    </tr>
+                    <tr>
+                        <td width="200px">@Html.Label("Föremål3 :")</td>
+                        <td width="500px"> @Html.DisplayFor(model => model.JewelleryDescription3)</td>
+                    </tr>
+                    <tr>
+                        <td width="200px">  @Html.Label("Åtgärd :")</td>
+                        <td width="500px"> @Html.DisplayFor(model => model.WorkToBeDone3)</td>
+                    </tr>
+                    <tr>
+                        <td width="200px">@Html.Label("Inlämnat (yyyy-MM-dd) :")</td>
+                        <td width="500px">   @Html.DisplayFor(model => model.ProductGivenOn)</td>
+                    </tr>
+                    <tr>
+                        <td width="200px">@Html.Label("Status :")</td>
+                        <td width="500px"> @Html.DisplayFor(model => model.sStatus)</td>
+                    </tr>
+                    <tr>
+                        <td width="200px">@Html.Label("Anteckningar :")</td>
+                        <td width="500px">@Html.DisplayFor(model => model.Comments)</td>
+                    </tr>
+                </table>
 
-                    <dd class="text-left">
-                        @Html.DisplayFor(model => model.JewelleryDescription1)
-                    </dd>
-                    <dt>
-                        @Html.Label("Åtgärd :")
-                    </dt>
 
-                    <dd class="text-left">
-                        @Html.DisplayFor(model => model.WorkToBeDone)
-                    </dd>
-                    <dt>
-                        @Html.Label("Föremål 2:")
-                    </dt>
-
-                    <dd class="text-left">
-                        @Html.DisplayFor(model => model.JewelleryDescription2)
-                    </dd>
-
-
-                    <dt>
-                        @Html.Label("Åtgärd :")
-                    </dt>
-
-                    <dd class="text-left">
-                        @Html.DisplayFor(model => model.WorkToBeDone2)
-                    </dd>
-                    <dt>
-                        @Html.Label("Föremål3 :")
-                    </dt>
-
-                    <dd class="text-left">
-                        @Html.DisplayFor(model => model.JewelleryDescription3)
-                    </dd>
-
-
-
-                    <dt>
-                        @Html.Label("Åtgärd :")
-                    </dt>
-
-                    <dd class="text-left">
-                        @Html.DisplayFor(model => model.WorkToBeDone3)
-                    </dd>
-
-                    <dt>
-                        @Html.Label("Inlämnat (yyyy-MM-dd) :")
-                    </dt>
-
-                    <dd class="text-left">
-                        @Html.DisplayFor(model => model.ProductGivenOn)
-                    </dd>
-
-                    @*<dt>
-            @Html.Label("",ProductToBeReturnedOn)
-        </dt>
-
-        <dd class="text-left">
-            @Html.DisplayFor(model => model.ProductToBeReturnedOn)
-        </dd>
-        <dt>
-            @Html.Label("",AmountEstimate)
-        </dt>
-
-        <dd class="text-left">
-            @Html.DisplayFor(model => model.AmountEstimate)
-        </dd>*@
-
-                    <dt>
-                        @Html.Label("Status :")
-                    </dt>
-
-                    <dd class="text-left">
-                        @Html.DisplayFor(model => model.sStatus)
-                    </dd>
-
-                    <dt>
-                        @Html.Label("Anteckningar :")
-                    </dt>
-
-                    <dd class="text-left">
-                        @Html.DisplayFor(model => model.Comments)
-                    </dd>
-
-                </dl>
                 <div>
                     @*<textarea class="form-control" placeholder="Anteckningar" rows="2" style="width:100%"></textarea>*@
                     <br />
@@ -156,9 +87,18 @@
                         Kund signatur
                     </span>
                     <br /><br />
-                          <p class="text-left">
-                              OBSERVERA:
-                          </p>
+                    <p class="text-left" style="font-size:smaller">
+                        OBSERVERA<br />
+                        Till Hallbergs Guld inlämnad egendom återfås endatst mot detta kvitto. Om uppdraget eller avtalet har upphört att gålla
+                        och kunden dårefter anmanats att avhåmta egendomen och i anmaningen upplysts om att egendomen annars kan
+                        komma att Såljas efter tre månader, äger Hallbergs Guld sälja egendomen efter den angivna  fristens utgång i enlighet
+                        med beståmmelserna i Lag (1985:982) om näringsidkares rätt att sälja saker som inte har hämtats
+                        <br />
+                        Vid eventuell skada på inlämnad egendom som Hallbergs Guld är ansvarig för skall Hallbergs Guld i första hand avhjäl-
+                        pa felet. Om inte detta är möjligt äger Hallbergs Guld ersätta med annan likvärdig egendom. I övrigt skall Ha%berqs Guld
+                        ersätte skadan endast till den del den ej omfattas av kundens egen försäkring.
+
+                    </p>
                 </div>
             </div>
 
