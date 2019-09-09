@@ -76,7 +76,7 @@
                     </div>
 
                     <div class="col-md-4">
-                        @Html.Label("Inlämnat (yyyy-MM-dd)")
+                        @Html.Label("Inlämnat")
                         @Html.EditorFor(model => model.ProductGivenOn, new { htmlAttributes = new { Placeholder = "Inlämnat (yyyy-MM-dd)", @class = "form-control", @readonly = "true", Value = DateTime.Now.ToString("yyyy-MM-dd") } })
                         @Html.ValidationMessageFor(model => model.ProductGivenOn, "", new { @class = "text-danger" })
                     </div>
@@ -128,7 +128,7 @@
                         {
                             <input type="submit" value="Skapa" class="btn btn-success btn-lg btn-block" /><br />
                         }
-                        <button class="btn btn-md btn-primary" onclick="location.href='@Url.Action("Index", "WorkOrders")';return false;">Huvud Sida</button><button class="btn btn-md btn-primary" onclick="location.href='@Url.Action("Index", "WorkOrders")';return false;">Huvud Sida</button>
+                        <button class="btn btn-md btn-primary" onclick="location.href='@Url.Action("Index", "WorkOrders")';return false;">Huvud Sida</button>
                         </div>
                     </center>
                 </div>

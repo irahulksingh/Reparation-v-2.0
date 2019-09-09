@@ -6,14 +6,13 @@
     }
 </div>
 <link href="~/Content/NewStyle.css" rel="stylesheet" />
-
 <div  class="print-page">
     <div class="formput">
         <form class="print-page">
             <div id="to_print">
                 <img src="~/Images/logo.png" width="50" ,height="50" class="text-center" />
                 <h4>Reparationer</h4>
-                <table class="table-condensed text-left">
+                <table class="text-left">
 
                     <tr class="text-center" width="100%"><td></td></tr>
                     <tr>
@@ -79,7 +78,8 @@
 
 
                 <div>
-                    @*<textarea class="form-control" placeholder="Anteckningar" rows="2" style="width:100%"></textarea>*@
+                    <br />
+                    <br />
                     <br />
                     <br />
                     <span class="pull-right">
@@ -87,24 +87,24 @@
                         Kund signatur
                     </span>
                     <br /><br />
-                    <p class="text-left" style="font-size:smaller">
-                        OBSERVERA<br />
-                        Till Hallbergs Guld inlämnad egendom återfås endatst mot detta kvitto. Om uppdraget eller avtalet har upphört att gålla
-                        och kunden dårefter anmanats att avhåmta egendomen och i anmaningen upplysts om att egendomen annars kan
-                        komma att Såljas efter tre månader, äger Hallbergs Guld sälja egendomen efter den angivna  fristens utgång i enlighet
-                        med beståmmelserna i Lag (1985:982) om näringsidkares rätt att sälja saker som inte har hämtats
-                        <br />
-                        Vid eventuell skada på inlämnad egendom som Hallbergs Guld är ansvarig för skall Hallbergs Guld i första hand avhjäl-
-                        pa felet. Om inte detta är möjligt äger Hallbergs Guld ersätta med annan likvärdig egendom. I övrigt skall Ha%berqs Guld
-                        ersätte skadan endast till den del den ej omfattas av kundens egen försäkring.
+                          <p class="text-left" style="font-size:x-small">
+                              OBSERVERA<br />
+                              Till Hallbergs Guld inlämnad egendom återfås endast mot detta kvitto. Om uppdraget eller avtalet har upphört att gälla
+                              och kunden därefter anmanats att avhämta egendomen och i anmaningen upplysts om att egendomen annars kan
+                              komma att säljas efter tre månader, äger Hallbergs Guld sälja egendomen efter den angivna  fristens utgång i enlighet
+                              med bestämmelserna i Lag (1985:982) om näringsidkares rätt att sälja saker som inte har hämtats.
+                              <br />
+                              Vid eventuell skada på inlämnad egendom som Hallbergs Guld är ansvarig för skall Hallbergs Guld i första hand avhjälpa
+                              felet. Om inte detta är möjligt äger Hallbergs Guld ersätta med annan likvärdig egendom. I övrigt skall Hallbergs Guld
+                              ersätta skadan endast till den del den ej omfattas av kundens egen försäkring.
 
-                    </p>
+                          </p>
                 </div>
             </div>
 
         </form>
         <div>
-
+           
             @*@Html.ActionLink("Redigera", "Edit", new { id = Model.Id }) ||*@
             @if (Session["Role"].ToString() == "Admin" || Session["Role"].ToString() == "User")
             {
@@ -117,4 +117,5 @@
 
         </div>
 </div>
+    </div>
 <script src="~/Scripts/PrintwithJavascript.js"></script>
