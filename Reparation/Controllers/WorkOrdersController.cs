@@ -16,14 +16,17 @@ namespace Reparation.Controllers
         private OurDbContext db = new OurDbContext();
 
         // GET: WorkOrders
-        public ActionResult Index(string searchString,string sortstring)
+        public ActionResult Index(string searchString,string sortOrder)
         {
+
             if (Session["UserId"] != null)
             {
 
+                ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
 
                 var workordersearch = from wo in db.workOrders
                                       select wo;
+        
                 if (!String.IsNullOrEmpty(searchString))
                 {
                     workordersearch = workordersearch.Where(wo => wo.CustomerMobileNumber.Contains(searchString)
@@ -33,12 +36,24 @@ namespace Reparation.Controllers
 
                 }
 
+                switch (sortOrder)
+                {
+                    //case "name_desc":
+                    //    workordersearch = workordersearch.OrderByDescending(s => s.sStatus.ToString());
+                    //    break;
+                    default:
+                        workordersearch = workordersearch.OrderByDescending(s => s.Id);
+
+                        break;
+                }
+
                 return View(db.workOrders.ToList());
             }
             else
             {
                 return RedirectToAction("Login", "UserAccounts");
             }
+
 
         }
         // GET: WorkOrders/Details/5

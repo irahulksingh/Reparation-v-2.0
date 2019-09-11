@@ -46,15 +46,18 @@
                     <th>
                         @Html.Label("Kund Namn")
                     </th>
-                   @if(Session["Role"].ToString() !="Demo")
-                   {
+                    @if (Session["Role"].ToString() != "Demo")
+                    {
+                        <th>
+                            @Html.Label("Telefonnummer")
+                        </th>
+                    }
+                    @*<th>
+                        @Html.ActionLink("Status", "Index", new { sortOrder = ViewBag.NameSortParm})
+                    </th>*@
                     <th>
-                        @Html.Label("Telefonnummer")
-                    </th>
-                   }
-                    <th>
-                        @Html.Label("Status")
-                    </th>
+            @Html.Label("Status")
+        </th>
                     <th>
                         @Html.Label("Anteckningar")
                     </th>
