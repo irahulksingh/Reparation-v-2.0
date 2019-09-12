@@ -77,42 +77,47 @@
                     foreach (var item in Model)
                     {
                     <tr>
-                        <td width="150px">
-                            @Html.DisplayFor(modelItem => item.WorkOrderId)
-                        </td>
-                        <td width="150px">
-                            @Html.DisplayFor(modelItem => item.GoldSmithName)
-                        </td>
-                        <td width="200PX">
-                            @Html.DisplayFor(modelItem => item.CustomerName)
-                        </td>
-                        @if (Session["Role"].ToString() != "Demo")
+                        @if (item.sStatus.ToString() != "Utlämnat")
                         {
-                            <td width="70px">
-                                @Html.DisplayFor(modelItem => item.CustomerMobileNumber)
+                            <td width="150px">
+                                @Html.DisplayFor(modelItem => item.WorkOrderId)
                             </td>
-                        }
+                            <td width="150px">
+                                @Html.DisplayFor(modelItem => item.GoldSmithName)
+                            </td>
+                            <td width="200PX">
+                                @Html.DisplayFor(modelItem => item.CustomerName)
+                            </td>
+                            if (Session["Role"].ToString() != "Demo")
+                            {
+                                <td width="70px">
+                                    @Html.DisplayFor(modelItem => item.CustomerMobileNumber)
+                                </td>
+                            }
+
                             <td width="70px">
                                 @Html.DisplayFor(modelItem => item.sStatus)
                             </td>
-                            <td width="300px">
-                                @Html.DisplayFor(modelItem => item.Comments)
-                            </td>
 
-                            <td class="text-center" width="500px">
+                        <td width="300px">
+                            @Html.DisplayFor(modelItem => item.Comments)
+                        </td>
 
-                                @*@Html.ActionLink("Redigera", "Edit", new { id = item.Id }) ||*@
-                                <button class="btn btn-sm btn-primary" onclick="location.href='@Url.Action("Edit", "WorkOrders", new { id = item.Id })';return false;">Redigera</button>
-                                                                                                
-                                <button class="btn btn-sm btn-success" onclick="location.href='@Url.Action("Details", "WorkOrders", new { id = item.Id })';return false;">Skriv ut</button>
-                                @if (Session["Role"].ToString() == "Admin")
-                                {
-                                    @*@Html.ActionLink("Skriv ut", "Details", new { id = item.Id })*@
-                                    <button class="btn btn-sm btn-danger" onclick="location.href='@Url.Action("Delete", "WorkOrders", new { id = item.Id })';return false;">Radera</button>
-                                    @*@Html.ActionLink("Radera", "Delete", new { id = item.Id })*@
-                                }
-                            </td>
-                        </tr>
+                        <td class="text-center" width="500px">
+
+                            @*@Html.ActionLink("Redigera", "Edit", new { id = item.Id }) ||*@
+                            <button class="btn btn-sm btn-primary" onclick="location.href='@Url.Action("Edit", "WorkOrders", new { id = item.Id })';return false;">Redigera</button>
+
+                            <button class="btn btn-sm btn-success" onclick="location.href='@Url.Action("Details", "WorkOrders", new { id = item.Id })';return false;">Skriv ut</button>
+                            @if (Session["Role"].ToString() == "Admin")
+                            {
+                                @*@Html.ActionLink("Skriv ut", "Details", new { id = item.Id })*@
+                                <button class="btn btn-sm btn-danger" onclick="location.href='@Url.Action("Delete", "WorkOrders", new { id = item.Id })';return false;">Radera</button>
+                                @*@Html.ActionLink("Radera", "Delete", new { id = item.Id })*@
+                            }
+                        </td>
+                        }
+                    </tr>
                     }
                 }
 
