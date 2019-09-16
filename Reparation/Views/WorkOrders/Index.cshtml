@@ -77,6 +77,8 @@
                     foreach (var item in Model)
                     {
                     <tr>
+                        @if (item.sStatus.ToString() != "Utlämnat")
+                        {
                         <td width="150px">
                             @Html.DisplayFor(modelItem => item.WorkOrderId)
                         </td>
@@ -86,7 +88,7 @@
                         <td width="300PX">
                             @Html.DisplayFor(modelItem => item.CustomerName)
                         </td>
-                        @if (Session["Role"].ToString() != "Demo")
+                        if (Session["Role"].ToString() != "Demo")
                         {
                             <td width="50px">
                                 @Html.DisplayFor(modelItem => item.CustomerMobileNumber)
@@ -112,6 +114,7 @@
                                     @*@Html.ActionLink("Radera", "Delete", new { id = item.Id })*@
                                 }
                             </td>
+                        }
                         </tr>
                     }
                 }
