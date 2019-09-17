@@ -9,7 +9,7 @@
         <div class="form-group-lg">
             <p class="text-center">
 
-                <h2>Reparation Lista</h2>
+                <h2>Utlämnade</h2>
 
 
             </p>
@@ -110,7 +110,7 @@
                                 @if (Session["Role"].ToString() == "Admin")
                                 {
                                     @*@Html.ActionLink("Skriv ut", "Details", new { id = item.Id })*@
-                                    <button class="btn btn-sm btn-danger" style="width:50" onclick="location.href='@Url.Action("Delete", "WorkOrders", new { id = item.Id })';return false;"><span class="glyphicon glyphicon-remove"></span></button>
+                                    @*<button class="btn btn-sm btn-danger" style="width:50" onclick="location.href='@Url.Action("Delete", "WorkOrders", new { id = item.Id })';return false;"><span class="glyphicon glyphicon-remove"></span></button>*@
                                     @*@Html.ActionLink("Radera", "Delete", new { id = item.Id })*@
                                 }
                             </td>

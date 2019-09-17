@@ -23,7 +23,9 @@
                     <li>@Html.ActionLink("Reparationer", "Index", "WorkOrders")</li>
                     <li>@Html.ActionLink("Utlämnat", "Return", "WorkOrders")</li>
                     <li>@Html.ActionLink("Ny Reparation", "Create", "WorkOrders")</li>
+                   @if (Session["Role"].ToString() == "Admin") { 
                     <li>@Html.ActionLink("Registrera", "Register", "UserAccounts")</li>
+                   }
                     <li>@Html.ActionLink("Logga ut", "Logout", "UserAccounts")</li>
                 </ul>
             </div>
