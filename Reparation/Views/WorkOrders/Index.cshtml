@@ -79,43 +79,47 @@
                     <tr>
                         @if (item.sStatus.ToString() != "Utlämnat")
                         {
-                        <td width="150px">
-                            @Html.DisplayFor(modelItem => item.WorkOrderId)
-                        </td>
-                        <td width="100px">
-                            @Html.DisplayFor(modelItem => item.GoldSmithName)
-                        </td>
-                        <td width="300PX">
-                            @Html.DisplayFor(modelItem => item.CustomerName)
-                        </td>
-                        if (Session["Role"].ToString() != "Demo")
-                        {
-                            <td width="50px">
-                                @Html.DisplayFor(modelItem => item.CustomerMobileNumber)
+                            <td width="150px">
+                                @Html.DisplayFor(modelItem => item.WorkOrderId)
                             </td>
-                        }
-                            <td width="50px">
-                                @Html.DisplayFor(modelItem => item.sStatus)
+                            <td width="100px">
+                                @Html.DisplayFor(modelItem => item.GoldSmithName)
                             </td>
+                            <td width="300PX">
+                                @Html.DisplayFor(modelItem => item.CustomerName)
+                            </td>
+                            if (Session["Role"].ToString() != "Demo")
+                            {
+                                <td width="50px">
+                                    @Html.DisplayFor(modelItem => item.CustomerMobileNumber)
+                                </td>
+                            }
+                            <td width="50px">
+                                @Html.DisplayFor(model => item.sStatus)
+                                @*@Html.DisplayFor(modelItem => item.sStatus)*@
+                            </td>
+
                             <td width="300px">
                                 @Html.DisplayFor(modelItem => item.Comments)
                             </td>
 
                             <td class="text-center" width="500px">
+                            @*<button class="btn btn-md btn-primary" onclick="location.href='@Url.Action("SaveStatus", "WorkOrders", new { id = item.Id })';return false;"><span class="glyphicon glyphicon-save"></span></button>*@
+                           
 
-                                @*@Html.ActionLink("Redigera", "Edit", new { id = item.Id }) ||*@
-                                <button class="btn btn-sm btn-primary" onclick="location.href='@Url.Action("Edit", "WorkOrders", new { id = item.Id })';return false;"><span class="glyphicon glyphicon-edit"></span></button>
-                                                                                                
-                                <button class="btn btn-sm btn-success" onclick="location.href='@Url.Action("Details", "WorkOrders", new { id = item.Id })';return false;"> <span class="glyphicon glyphicon-print"></span></button>
-                                @if (Session["Role"].ToString() == "Admin")
-                                {
-                                    @*@Html.ActionLink("Skriv ut", "Details", new { id = item.Id })*@
-                                    <button class="btn btn-sm btn-danger" style="width:50" onclick="location.href='@Url.Action("Delete", "WorkOrders", new { id = item.Id })';return false;"><span class="glyphicon glyphicon-remove"></span></button>
-                                    @*@Html.ActionLink("Radera", "Delete", new { id = item.Id })*@
-                                }
+                            @*@Html.ActionLink("Redigera", "Edit", new { id = item.Id }) ||*@
+                            <button class="btn btn-sm btn-primary" onclick="location.href='@Url.Action("Edit", "WorkOrders", new { id = item.Id })';return false;"><span class="glyphicon glyphicon-edit"></span></button>
+
+                            <button class="btn btn-sm btn-success" onclick="location.href='@Url.Action("Details", "WorkOrders", new { id = item.Id })';return false;"> <span class="glyphicon glyphicon-print"></span></button>
+                            @if (Session["Role"].ToString() == "Admin")
+                            {
+                                @*@Html.ActionLink("Skriv ut", "Details", new { id = item.Id })*@
+                                <button class="btn btn-sm btn-danger" style="width:50" onclick="location.href='@Url.Action("Delete", "WorkOrders", new { id = item.Id })';return false;"><span class="glyphicon glyphicon-remove"></span></button>
+                                @*@Html.ActionLink("Radera", "Delete", new { id = item.Id })*@
+                            }
                             </td>
                         }
-                        </tr>
+                    </tr>
                     }
                 }
 

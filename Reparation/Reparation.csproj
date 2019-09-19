@@ -200,6 +200,7 @@
     <Content Include="Views\WorkOrders\Edit.cshtml" />
     <Content Include="Views\WorkOrders\Index.cshtml" />
     <Content Include="Views\WorkOrders\Return.cshtml" />
+    <Content Include="Views\WorkOrders\SaveStatus.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -3,6 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name=”viewport” content=”width =device-width, initial-scale=1.0” />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     @Styles.Render("~/Content/Mobile/css", "~/Content/jquerymobile/css")
     @Scripts.Render("~/bundles/jquery", "~/bundles/jquerymobile")
     <title class="not-printable">@ViewBag.Title -Reparations</title>
@@ -14,19 +16,24 @@
 </head>
 <body>
 
-    <div class="navbar navbar-inverse navbar-fixed-top not-printable">
+    <div  id="top-menu" class="navbar navbar-inverse navbar-fixed-top not-printable">
 
         @if (Session["UserId"] != null)
         {
             <div class="navbar-collapse collapse not-printable">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Reparationer", "Index", "WorkOrders")</li>
+                    <li><a href="@Url.Action("Index", "WorkOrders")"> <span class="glyphicon glyphicon-home"></span></a></li>
+                    <li>@*@Html.ActionLink("Reparationer", "Index", "WorkOrders")*@</li>
                     <li>@Html.ActionLink("Utlämnat", "Return", "WorkOrders")</li>
                     <li>@Html.ActionLink("Ny Reparation", "Create", "WorkOrders")</li>
-                   @if (Session["Role"].ToString() == "Admin") { 
-                    <li>@Html.ActionLink("Registrera", "Register", "UserAccounts")</li>
-                   }
-                    <li>@Html.ActionLink("Logga ut", "Logout", "UserAccounts")</li>
+                    @if (Session["Role"].ToString() == "Admin")
+                    {
+                        <li>@Html.ActionLink("Registrera", "Register", "UserAccounts")</li>
+                    }
+                    <li>
+                        @Html.ActionLink("Logga ut", "Logout", "UserAccounts")
+                    @*<button onclick="location.href='@Url.Action("Logout", "UserAccounts")';return false;"><span class="glyphicon glyphicon-log-out"></span></button>*@
+                </li>
                 </ul>
             </div>
 

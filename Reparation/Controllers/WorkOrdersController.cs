@@ -207,5 +207,21 @@ namespace Reparation.Controllers
             }
             base.Dispose(disposing);
         }
+
+        // POST: WorkOrders/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+
+       
+        //public ActionResult SaveStatus([Bind(Include = "Id,WorkOrderId,GoldSmithName,CustomerName,CustomerMobileNumber,CustomerEmail,JewelleryDescription1,JewelleryDescription2,JewelleryDescription3,WorkToBeDone,WorkToBeDone2,WorkToBeDone3,AgentName,ProductGivenOn,DateAcceptedOrRejected,sAcceptedRejectedStatus,AmountToBeCollected,sStatus,Comments")] WorkOrders workOrders)
+        //{
+        //    if (ModelState.IsValid == false)
+        //    {
+        //        db.Entry(workOrders).State = EntityState.Modified;
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+        //    return View(workOrders);
+        //}
     }
 }
