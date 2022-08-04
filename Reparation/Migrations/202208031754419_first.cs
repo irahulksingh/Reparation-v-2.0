@@ -3,7 +3,7 @@ namespace Reparation.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class first : DbMigration
     {
         public override void Up()
         {
@@ -18,6 +18,8 @@ namespace Reparation.Migrations
                         confirmPassword = c.String(nullable: false),
                         ButikId = c.String(nullable: false),
                         Role = c.Int(nullable: false),
+                        Createdby = c.String(),
+                        CreatedOn = c.DateTime(),
                     })
                 .PrimaryKey(t => t.UserId);
             

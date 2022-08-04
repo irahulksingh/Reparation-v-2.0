@@ -10,7 +10,6 @@ namespace Reparation.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "Reparation.DAL.OurDbContext";
         }
 
         protected override void Seed(Reparation.DAL.OurDbContext context)
