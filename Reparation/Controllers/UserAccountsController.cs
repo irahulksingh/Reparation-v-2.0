@@ -96,7 +96,7 @@ namespace Reparation.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "AnstallaningNummer or Password incorrect");
+                    ModelState.AddModelError(string.Empty, "AnstallaningNummer eller Lösenord är felaktigt");
                 }
             }
             return View();
